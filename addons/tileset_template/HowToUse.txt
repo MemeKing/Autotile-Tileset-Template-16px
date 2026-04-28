@@ -2,7 +2,7 @@ How to use this template:
 
 To get right into designing tiles, use the provided TileMap resource to lay some tiles down 
 and get a feel for which tile is which. The shapes in the template are NOT the visual shapes
-you will draw, they represent the autotile bitmasks, or the situations where each tile would
+you will draw, they represent the autotile bitmasks, or the neighborhood where each tile would
 be selected by the auto tiler.
 
 To help get a grasp of things, PremadeTileset.res is preconfigured with an autotiling terrain 
@@ -11,7 +11,6 @@ so that you can experiment and draw tiles as you go.
 When starting any new level in your game, you should always start by making a TileMapLayer 
 with a fresh copy of the template, so that level design can advance. 
 
-
 The canvas can be freely expanded at any time but you must ALWAYS expand from the top left 
 corner so that  the tileset data will not be thrown off.
 
@@ -19,5 +18,12 @@ Note: Some tiles have a green top that goes outside the lines of the grid. Those
 sidescrolling games with a slightly downwards camera angle. They are what you make of
 them, and completely optional.
 
-Tips:
-	- There are a lot of tiles. 
+Q: Are there enough tiles?
+For the purposes of 8 bit autotiling, all valid shapes exist in this template.
+There are 256 possible bitmask shapes in the full 2^8 solution space. But we can't connect
+textures diagonally in this scheme, so any "danging" corners with no orthogonal neighbors 
+makes the pattern invalid. That brings it down to 161 valid shapes. But also, a lot of 
+bitmask shapes will result in the same outcome so they're redundant.
+
+Removing those, we get the traditional 47. This set has more than that to allow for some
+variation in the shapes that will appear the most often.
