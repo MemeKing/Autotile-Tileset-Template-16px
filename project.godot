@@ -13,6 +13,7 @@ config_version=5
 config/name="TileMap"
 run/main_scene="uid://bto5mjmfy4qo0"
 config/features=PackedStringArray("4.6", "GL Compatibility")
+config/icon="uid://ddasmrur5je1o"
 
 [physics]
 
